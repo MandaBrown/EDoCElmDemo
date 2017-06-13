@@ -1,16 +1,27 @@
 
-Ctrl+Shift+B to build and errors already!
+Well, let's take care of the error, first.
 
 ```
--- error: SYNTAX PROBLEM - /Users/manda/code/mandabrown/EDoCElmDemo/Main.elm:1:1
-I ran into something unexpected when parsing your code!
-I am looking for one of the following things:
-    "{-|"
-    a definition or type annotation
-    a module declaration
-    a port declaration
-    a type declaration
-    an import
-    an infix declaration
-    whitespace
+The `main` value has an unsupported type.
+I need Html, Svg, or a Program so I have something to render on screen, but you
+gave me:
+    String
 ```
+
+Remember when we installed elm-lang/html? It's time to use it.
+
+We'll import it and expose the `h1` function, which looks like this:
+
+```
+Html.h1 : List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg﻿
+```
+
+In other words, it takes
+  - a list of Html.Attribute 
+  - a list of Html.Html 
+
+and returns an Html.Html.
+
+Let's ignore the `msg` for the moment.
+
+We also need `text`, which is how we get any actual text into our html elements.
