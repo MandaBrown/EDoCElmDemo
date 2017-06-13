@@ -1,4 +1,11 @@
 
-Now let's fix the warning by copying the inferred type annotation into the code.
+Great! No more errors!
 
-We don't *have* to do this, but in the long run, I've found that it really does make it easier to navigate larger projects.
+Now let's build something so we can see what we're looking at... 
+
+```
+<Cmd>+<Shift>+<B>
+Elm Make-Run
+```
+
+And check out the `build` folder!
