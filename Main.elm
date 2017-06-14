@@ -9,7 +9,7 @@ main : Program Never EdocModel EdocMsg
 main =
     Html.program
         { init = ( edocDemoModel, Cmd.none )
-        , subscriptions = \_ -> Sub.none
+        , subscriptions = edocDemoSubscription
         , update = edocDemoUpdate
         , view = edocDemoView
         }
