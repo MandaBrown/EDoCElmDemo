@@ -1,20 +1,18 @@
 
-If we want this to actually *do* anything, we have to have Elm manage all of the side effects for us.
+So program needs:
+  - an initial tuple of a model and command (with some message type)
+  - a function that takes the model and gives us a subscription (with some message type)
+  - an update function that takes a message and the model, and gives us a new model and a command
+  - and a view that takes the model and returns some html
 
-For a web component, we can use `Html.program` to handle all the behind-the-scenes stuff that we need to update our model and view as things happen.
+Well, we have the view!
 
-Of course, this doesn't compile, but maybe the compiler can help us figure out what we actually need to give it to hook everything up...
+One down...
 
 ```
-The definition of `main` does not match its type annotation.
-The type annotation for `main` says it is a:
-    Html.Html msg
-But the definition (shown above) is a:
-    { init : ( model, Cmd msg )
-    , subscriptions : model -> Sub msg
-    , update : msg -> model -> ( model, Cmd msg )
-    , view : model -> Html.Html msg
+    { ...
+    , init : ( String, Cmd msg )
+    , subscriptions : String -> Sub msg
+    , update : msg -> String -> ( String, Cmd msg )
     }
-    -> Program Never model msg
-Hint: It looks like a function needs 1 more argument.
 ```

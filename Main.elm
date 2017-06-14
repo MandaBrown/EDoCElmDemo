@@ -6,6 +6,11 @@ import Html exposing (h1, text)
 main : Html.Html msg
 main =
     Html.program
+        { init = ()
+        , subscriptions = ()
+        , update = ()
+        , view = edocDemoView
+        }
 
 
 
