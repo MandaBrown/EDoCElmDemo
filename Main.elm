@@ -1,6 +1,7 @@
 module Main exposing (..)
 
-import Html exposing (h1, text)
+import Html exposing (h1, text, div, img)
+import Html.Attributes exposing (src, class)
 import Html.Events exposing (onClick)
 import Keyboard
 
@@ -41,8 +42,19 @@ edocDemoView model =
         titleText =
             model.baseText
                 ++ String.repeat model.excitementLevel "!"
+
+        gifUrl =
+            case model.gifUrl of
+                Just url ->
+                    url
+
+                Nothing ->
+                    "https://media.giphy.com/media/hFmIU5GQF18Aw/giphy.gif"
     in
-        h1 [ onClick TitleClick ] [ text titleText ]
+        div []
+            [ h1 [ onClick TitleClick ] [ text titleText ]
+            , img [ src gifUrl, class "animated-animal" ] []
+            ]
 
 
 
