@@ -5,7 +5,7 @@ import Html exposing (h1, text)
 
 main : Html.Html msg
 main =
-    h1 [] [ text edocDemoModel ]
+    edocDemoView edocDemoModel
 
 
 
@@ -15,3 +15,12 @@ main =
 edocDemoModel : String
 edocDemoModel =
     "Hello, Erie Day of Code!"
+
+
+
+-- VIEW
+
+
+edocDemoView : String -> Html.Html msg
+edocDemoView model =
+    h1 [] [ text model ]
