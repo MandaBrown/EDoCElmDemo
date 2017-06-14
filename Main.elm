@@ -50,7 +50,7 @@ edocDemoView model =
 
 type EdocMsg
     = TitleClick
-    | KeyDown
+    | KeyDown Keyboard.KeyCode
 
 
 edocDemoUpdate : EdocMsg -> EdocModel -> ( EdocModel, Cmd EdocMsg )
@@ -70,4 +70,4 @@ edocDemoUpdate msg model =
 
 edocDemoSubscription : EdocModel -> Sub EdocMsg
 edocDemoSubscription _ =
-    Keyboard.downs
+    Keyboard.downs KeyDown

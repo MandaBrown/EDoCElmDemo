@@ -1,13 +1,6 @@
 
-We can subscribe to keyboard downs -- we tell the subscription what sort of message we want back, so we'll add a `KeyDown` type to our `EdocMsg`s.
+We have a couple of choices here: we can handle the (Keyboard.KeyCode -> EdocMsg) in the subscription or in the update. 
 
-We get an interesting error when we try to compile...
+Since we picked a generic message (`KeyDown`) to pass into our update, it makes sense to have that type that carries along the keycode information with it. 
 
-```
-The definition of `edocDemoSubscription` does not match its type annotation.
-The type annotation for `edocDemoSubscription` says it always returns:
-    Sub EdocMsg
-But the returned value (shown above) is a:
-    (Keyboard.KeyCode -> EdocMsg) -> Sub EdocMsg
-Hint: It looks like a function needs 1 more argument.
-```
+Adding that to the `KeyDown` message means we now have a constructor available for that message that takes one argument - the keycode. That's what `Keyboard.downs` needs -- something that takes a keycode and returns an EdocMsg, so let's provide the `KeyDown` constructor as the argument to `Keyboard.downs`
