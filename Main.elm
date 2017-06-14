@@ -41,5 +41,11 @@ type EdocMsg
 
 
 edocDemoUpdate : EdocMsg -> String -> ( String, Cmd EdocMsg )
-edocDemoUpdate msg _ =
-    ( edocDemoModel, Cmd.none )
+edocDemoUpdate msg model =
+    case msg of
+        TitleClick ->
+            let
+                newModel =
+                    model ++ "!"
+            in
+                ( newModel, Cmd.none )
