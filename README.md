@@ -1,17 +1,15 @@
 
-So program needs:
-  - an initial tuple of a model and command (with some message type)
-  - a function that takes the model and gives us a subscription (with some message type)
-  - an update function that takes a message and the model, and gives us a new model and a command
-  - and a view that takes the model and returns some html
+Init is a tuple with a model and a command. The model is easy - let's plug in the model that we've been using so far.
 
-Well, we have the view!
+What about the command though? 
 
-One down...
+Commands are a way to tell Elm, "Hey, I want to do this thing!" -- useful for things like sending Http requests. Every command specifies which effect you want and the type of message that will come back into your application when it is complete.
 
+We don't have any commands yet though, so we'll just use the handy Cmd.none from [Platform.Cmd](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Cmd) in the core library.
+
+2 more pieces to go:
 ```
     { ...
-    , init : ( String, Cmd msg )
     , subscriptions : String -> Sub msg
     , update : msg -> String -> ( String, Cmd msg )
     }

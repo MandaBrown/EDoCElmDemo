@@ -6,7 +6,7 @@ import Html exposing (h1, text)
 main : Html.Html msg
 main =
     Html.program
-        { init = ()
+        { init = ( edocDemoModel, Cmd.none )
         , subscriptions = ()
         , update = ()
         , view = edocDemoView
