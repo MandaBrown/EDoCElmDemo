@@ -4,12 +4,15 @@ import Html exposing (h1, text, div, img)
 import Html.Attributes exposing (src, class)
 import Html.Events exposing (onClick)
 import Keyboard
+import Time exposing (Time, second)
+import Http
+import Json.Decode as Decode
 
 
 main : Program Never EdocModel EdocMsg
 main =
     Html.program
-        { init = ( edocDemoModel, Cmd.none )
+        { init = ( edocDemoModel, getCowGif )
         , subscriptions = edocDemoSubscription
         , update = edocDemoUpdate
         , view = edocDemoView
@@ -64,11 +67,22 @@ edocDemoView model =
 type EdocMsg
     = TitleClick
     | KeyDown Keyboard.KeyCode
+    | ChangeGif
+    | NewGif (Result Http.Error String)
 
 
 edocDemoUpdate : EdocMsg -> EdocModel -> ( EdocModel, Cmd EdocMsg )
 edocDemoUpdate msg model =
     case msg of
+        ChangeGif ->
+            ( model, getCowGif )
+
+        NewGif (Ok newUrl) ->
+            ( { model | gifUrl = Just newUrl }, Cmd.none )
+
+        NewGif (Err _) ->
+            ( model, Cmd.none )
+
         TitleClick ->
             let
                 newModel =
@@ -90,10 +104,30 @@ edocDemoUpdate msg model =
                 ( newModel, Cmd.none )
 
 
+getCowGif : Cmd EdocMsg
+getCowGif =
+    let
+        url =
+            "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=happy+cow"
+
+        request =
+            Http.get url decodeGifUrl
+    in
+        Http.send NewGif request
+
+
+decodeGifUrl : Decode.Decoder String
+decodeGifUrl =
+    Decode.at [ "data", "image_url" ] Decode.string
+
+
 
 -- SUBSCRIPTIONS
 
 
 edocDemoSubscription : EdocModel -> Sub EdocMsg
 edocDemoSubscription _ =
-    Keyboard.downs KeyDown
+    Sub.batch
+        [ Keyboard.downs KeyDown
+        , Time.every (second * 10) (\_ -> ChangeGif)
+        ]
