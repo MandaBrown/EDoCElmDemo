@@ -27,7 +27,7 @@ type alias EdocModel =
 
 edocDemoModel : EdocModel
 edocDemoModel =
-    EdocModel "Hello, Erie Day ofEd Code!" 0
+    EdocModel "Hello, Erie Day of Code!" 0
 
 
 
