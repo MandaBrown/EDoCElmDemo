@@ -7,8 +7,8 @@ main : Html.Html msg
 main =
     Html.program
         { init = ( edocDemoModel, Cmd.none )
-        , subscriptions = ()
-        , update = ()
+        , subscriptions = \_ -> Sub.none
+        , update = \_ _ -> ( edocDemoModel, Cmd.none )
         , view = edocDemoView
         }
 

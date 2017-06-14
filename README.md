@@ -1,16 +1,14 @@
 
-Init is a tuple with a model and a command. The model is easy - let's plug in the model that we've been using so far.
+Elm is saying that update should be a function that takes a msg (of some type) and a String (hey, like our model!) and returns a tuple of (String, Cmd msg) (where have we seen that before?).
 
-What about the command though? 
+We don't have anything to update yet, so we could fix this with an anonymous function that doesn't do anything:
 
-Commands are a way to tell Elm, "Hey, I want to do this thing!" -- useful for things like sending Http requests. Every command specifies which effect you want and the type of message that will come back into your application when it is complete.
-
-We don't have any commands yet though, so we'll just use the handy Cmd.none from [Platform.Cmd](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Cmd) in the core library.
-
-2 more pieces to go:
+```elm
+\_ _ -> (edocDemoModel, Cmd.none)
 ```
-    { ...
-    , subscriptions : String -> Sub msg
-    , update : msg -> String -> ( String, Cmd msg )
-    }
+
+We could do the same for subscriptions, which take a String and return a Sub:
+
+```elm
+\_ -> Sub.none
 ```
