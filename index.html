@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>EDoC Elm</title>
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+
+	<style>
+		html { height: 100%; }
+
+	  body {
+	  	background-image: url(assets/images/cow-pattern.jpg);
+	  	background-size: cover;
+	  	background-repeat: no-repeat;
+	  }
+
+	  h1 {
+	  	font-family: 'Amatic SC', serif;
+	  	font-size: 192px;
+	  	font-weight: normal;
+	  	user-select: none;
+	  }
+
+	  .elm-app {
+	  	position: absolute;
+	  	top: 0;
+	  	right: 0;
+	  	bottom: 0;
+	  	left: 0;
+
+	  	display: flex;
+	  	justify-content: center;
+	  	align-items: center;
+	  	margin: 1rem;
+
+	  	border: 1px solid hsl(0, 0%, 80%);
+	  	border-radius: 1rem;
+	  	background-color: hsla(0, 0%, 100%, 0.97);
+	  }
+
+	  .elm-app-content {
+	  	flex: 1 1 auto;
+	  	text-align: center;
+	  }
+	</style>
+</head>
+
+<body>
+
+<div class="elm-app">
+	<div class="elm-app-content">
+		<div id="app"></div>
+	</div>
+</div>
+
+<script src="elm.js"></script>
+<script>Elm.Main.embed(document.getElementById("app"));</script>
+</body>
+</html>
