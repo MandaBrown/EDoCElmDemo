@@ -3,7 +3,7 @@ module Main exposing (..)
 import Html exposing (h1, text)
 
 
-main : Html.Html msg
+main : Program Never String msg
 main =
     Html.program
         { init = ( edocDemoModel, Cmd.none )
