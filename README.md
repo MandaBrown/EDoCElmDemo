@@ -1,6 +1,14 @@
 
-We have a couple of choices here: we can handle the (Keyboard.KeyCode -> EdocMsg) in the subscription or in the update. 
+Now we have a new error!
 
-Since we picked a generic message (`KeyDown`) to pass into our update, it makes sense to have that type that carries along the keycode information with it. 
+Elm doesn't let us forget to handle any possibilities:
 
-Adding that to the `KeyDown` message means we now have a constructor available for that message that takes one argument - the keycode. That's what `Keyboard.downs` needs -- something that takes a keycode and returns an EdocMsg, so let's provide the `KeyDown` constructor as the argument to `Keyboard.downs`
+```
+This `case` does not have branches for all possibilities.
+You need to account for the following values:
+    Main.KeyDown _
+Add a branch to cover this pattern!
+If you are seeing this error for the first time, check out these hints:
+<https://github.com/elm-lang/elm-compiler/blob/0.18.0/hints/missing-patterns.md>
+The recommendations about wildcard patterns and `Debug.crash` are important!
+```

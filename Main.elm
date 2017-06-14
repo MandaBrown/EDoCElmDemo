@@ -63,6 +63,13 @@ edocDemoUpdate msg model =
             in
                 ( newModel, Cmd.none )
 
+        KeyDown keyCode ->
+            let
+                _ =
+                    Debug.log "keycode" keyCode
+            in
+                ( model, Cmd.none )
+
 
 
 -- SUBSCRIPTIONS
