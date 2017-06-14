@@ -4,7 +4,7 @@ import Html exposing (h1, text)
 import Html.Events exposing (onClick)
 
 
-main : Program Never String EdocMsg
+main : Program Never EdocModel EdocMsg
 main =
     Html.program
         { init = ( edocDemoModel, Cmd.none )
@@ -18,18 +18,29 @@ main =
 -- MODEL
 
 
-edocDemoModel : String
+type alias EdocModel =
+    { baseText : String
+    , excitementLevel : Int
+    }
+
+
+edocDemoModel : EdocModel
 edocDemoModel =
-    "Hello, Erie Day of Code!"
+    EdocModel "Hello, Erie Day of Code!" 0
 
 
 
 -- VIEW
 
 
-edocDemoView : String -> Html.Html EdocMsg
+edocDemoView : EdocModel -> Html.Html EdocMsg
 edocDemoView model =
-    h1 [ onClick TitleClick ] [ text model ]
+    let
+        titleText =
+            model.baseText
+                ++ String.repeat model.excitementLevel "!"
+    in
+        h1 [ onClick TitleClick ] [ text titleText ]
 
 
 
@@ -40,12 +51,12 @@ type EdocMsg
     = TitleClick
 
 
-edocDemoUpdate : EdocMsg -> String -> ( String, Cmd EdocMsg )
+edocDemoUpdate : EdocMsg -> EdocModel -> ( EdocModel, Cmd EdocMsg )
 edocDemoUpdate msg model =
     case msg of
         TitleClick ->
             let
                 newModel =
-                    model ++ "!"
+                    { model | excitementLevel = model.excitementLevel + 1 }
             in
                 ( newModel, Cmd.none )
