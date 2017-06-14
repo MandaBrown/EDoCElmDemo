@@ -2,6 +2,7 @@ module Main exposing (..)
 
 import Html exposing (h1, text)
 import Html.Events exposing (onClick)
+import Keyboard
 
 
 main : Program Never EdocModel EdocMsg
@@ -26,7 +27,7 @@ type alias EdocModel =
 
 edocDemoModel : EdocModel
 edocDemoModel =
-    EdocModel "Hello, Erie Day of Code!" 0
+    EdocModel "Hello, Erie Day ofEd Code!" 0
 
 
 
@@ -49,6 +50,7 @@ edocDemoView model =
 
 type EdocMsg
     = TitleClick
+    | KeyDown
 
 
 edocDemoUpdate : EdocMsg -> EdocModel -> ( EdocModel, Cmd EdocMsg )
@@ -60,3 +62,12 @@ edocDemoUpdate msg model =
                     { model | excitementLevel = model.excitementLevel + 1 }
             in
                 ( newModel, Cmd.none )
+
+
+
+-- SUBSCRIPTIONS
+
+
+edocDemoSubscription : EdocModel -> Sub EdocMsg
+edocDemoSubscription _ =
+    Keyboard.downs

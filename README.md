@@ -1,8 +1,13 @@
 
-In addition to clicking, it would be great to set the excitement level by pressing a number on the keyboard. To do that, we'll need to use a subscription! 
+We can subscribe to keyboard downs -- we tell the subscription what sort of message we want back, so we'll add a `KeyDown` type to our `EdocMsg`s.
 
-Elm can let us know when a key is pressed if we use the [elm-lang/keyboard package](http://package.elm-lang.org/packages/elm-lang/keyboard/latest), so let's install it.
+We get an interesting error when we try to compile...
 
 ```
-elm package install elm-lang/keyboard
+The definition of `edocDemoSubscription` does not match its type annotation.
+The type annotation for `edocDemoSubscription` says it always returns:
+    Sub EdocMsg
+But the returned value (shown above) is a:
+    (Keyboard.KeyCode -> EdocMsg) -> Sub EdocMsg
+Hint: It looks like a function needs 1 more argument.
 ```
