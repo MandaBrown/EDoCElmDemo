@@ -65,10 +65,16 @@ edocDemoUpdate msg model =
 
         KeyDown keyCode ->
             let
-                _ =
-                    Debug.log "keycode" keyCode
+                newLevel =
+                    if keyCode >= 48 && keyCode <= 57 then
+                        keyCode - 48
+                    else
+                        1
+
+                newModel =
+                    { model | excitementLevel = newLevel }
             in
-                ( model, Cmd.none )
+                ( newModel, Cmd.none )
 
 
 
