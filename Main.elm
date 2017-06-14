@@ -8,7 +8,7 @@ main =
     Html.program
         { init = ( edocDemoModel, Cmd.none )
         , subscriptions = \_ -> Sub.none
-        , update = \_ _ -> ( edocDemoModel, Cmd.none )
+        , update = edocDemoUpdate
         , view = edocDemoView
         }
 
@@ -29,3 +29,12 @@ edocDemoModel =
 edocDemoView : String -> Html.Html msg
 edocDemoView model =
     h1 [] [ text model ]
+
+
+
+-- UPDATE
+
+
+edocDemoUpdate : msg -> String -> ( String, Cmd msg )
+edocDemoUpdate _ _ =
+    ( edocDemoModel, Cmd.none )

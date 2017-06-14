@@ -1,6 +1,4 @@
 
-Oops!
+Now we're back to a working, boring, Elm app.
 
-One more error message. `main` no longer returns Html.Html msg -- now we have to update the type definition to `Program Never String msg`.
-
-Thanks, compiler. Thancompiler.
+Let's make it do something! First, let's move the update method out of main.
