@@ -22,12 +22,13 @@ main =
 type alias EdocModel =
     { baseText : String
     , excitementLevel : Int
+    , gifUrl : Maybe String
     }
 
 
 edocDemoModel : EdocModel
 edocDemoModel =
-    EdocModel "Hello, Erie Day of Code!" 0
+    EdocModel "Hello, Erie Day of Code!" 0 Nothing
 
 
 
