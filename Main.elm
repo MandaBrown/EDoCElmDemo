@@ -1,9 +1,10 @@
 module Main exposing (..)
 
 import Html exposing (h1, text)
+import Html.Events exposing (onClick)
 
 
-main : Program Never String msg
+main : Program Never String EdocMsg
 main =
     Html.program
         { init = ( edocDemoModel, Cmd.none )
@@ -26,15 +27,19 @@ edocDemoModel =
 -- VIEW
 
 
-edocDemoView : String -> Html.Html msg
+edocDemoView : String -> Html.Html EdocMsg
 edocDemoView model =
-    h1 [] [ text model ]
+    h1 [ onClick TitleClick ] [ text model ]
 
 
 
 -- UPDATE
 
 
-edocDemoUpdate : msg -> String -> ( String, Cmd msg )
-edocDemoUpdate _ _ =
+type EdocMsg
+    = TitleClick
+
+
+edocDemoUpdate : EdocMsg -> String -> ( String, Cmd EdocMsg )
+edocDemoUpdate msg _ =
     ( edocDemoModel, Cmd.none )

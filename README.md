@@ -1,4 +1,7 @@
 
-Now we're back to a working, boring, Elm app.
+Let's do something when the title is clicked. To do that, we're going to need something that generates messages.
 
-Let's make it do something! First, let's move the update method out of main.
+We'll use `Html.Events.onClick` to handle the title clicks...
+
+And now we need a message to pass to update!
+
