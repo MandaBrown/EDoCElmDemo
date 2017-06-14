@@ -129,5 +129,5 @@ edocDemoSubscription : EdocModel -> Sub EdocMsg
 edocDemoSubscription _ =
     Sub.batch
         [ Keyboard.downs KeyDown
-        , Time.every (second * 10) (\_ -> ChangeGif)
+        , Time.every (second * 6) (\_ -> ChangeGif)
         ]
