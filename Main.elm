@@ -5,7 +5,7 @@ import Html exposing (h1, text)
 
 main : Html.Html msg
 main =
-    edocDemoView edocDemoModel
+    Html.program
 
 
 
