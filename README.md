@@ -1,8 +1,8 @@
 
-That's pretty great, but it can get out of control, and there's no way to fix it when it does.
+In addition to clicking, it would be great to set the excitement level by pressing a number on the keyboard. To do that, we'll need to use a subscription! 
 
-It would be cool if we could reset the exclamation marks....
+Elm can let us know when a key is pressed if we use the [elm-lang/keyboard package](http://package.elm-lang.org/packages/elm-lang/keyboard/latest), so let's install it.
 
-Let's change up our model a bit, and use a `type alias` to make sure we're consistent everywhere we use it.
-
-When the refactor is done, everything is going to work the same!
+```
+elm package install elm-lang/keyboard
+```
