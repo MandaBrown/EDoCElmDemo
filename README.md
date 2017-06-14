@@ -1,17 +1,6 @@
 
-Let's start a server with live reload:
+That's all very exciting, but we know that we're going to want the text on the page to change, which means we shouldn't have it hard coded inside some html.
 
-```bash
-elm live Main.elm --output=elm.js
-```
+Elm is very declarative - you want your html functions to look very much like regular html. You're only using them to describe how you want the data to look.
 
-We could also use this to generate an html page, if we still wanted to do that. Take a look at `index.html` -- these are the magic lines that embed our elm app in our page:
-
-```html
-<div id="app"></div>
-
-<script src="elm.js"></script>
-<script>Elm.Main.embed(document.getElementById("app"));</script>
-```
-
-Try editing the text and watching it update in real time!
+Let's extract our text into `edocDemoModel`. It, like `main` is a function that doesn't take any inputs... or really just like a variable!
