@@ -1,14 +1,11 @@
-- Tools:
-    - Sublime Text
-        - Elm Language Support
-    - Elm Live
+Error first
 
-<CMD><SHIFT><B>
-
-```elm
-main = "Hello, World!"
+```bash
+elm package install elm-lang/html
 ```
 
-- Elm Format adds module
+- elm-package.json
+- elm-stuff (.gitignore)
 
-<CMD><SHIFT><B>
+Semantic versioning
+Package manager
