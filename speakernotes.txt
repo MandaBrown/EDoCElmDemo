@@ -1,11 +1,19 @@
-Error first
-
-```bash
-elm package install elm-lang/html
+```
+The `main` value has an unsupported type.
+I need Html, Svg, or a Program so I have something to render on screen, but you
+gave me:
 ```
 
-- elm-package.json
-- elm-stuff (.gitignore)
+```elm
+import Html exposing (Html, div, text)
+```
 
-Semantic versioning
-Package manager
+<OPT><UP> for type panel, copy from there:
+
+```elm
+div [] [ text "Hello, World!" ]
+```
+
+<CMD><SHIFT><B>
+
+missing type annotation is left
