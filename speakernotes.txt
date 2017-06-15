@@ -1,19 +1,15 @@
 ```
-The `main` value has an unsupported type.
-I need Html, Svg, or a Program so I have something to render on screen, but you
-gave me:
-```
-
-```elm
-import Html exposing (Html, div, text)
-```
-
-<OPT><UP> for type panel, copy from there:
-
-```elm
-div [] [ text "Hello, World!" ]
+main : Html msg
 ```
 
 <CMD><SHIFT><B>
 
-missing type annotation is left
+all good - let's actually build it with elm lang support
+
+<CMD><SHIFT><B>
+
+see build folder, with Main.html
+
+Compiled to html
+
+look at it, open in browser, then delete it
