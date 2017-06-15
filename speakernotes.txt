@@ -1,6 +1,14 @@
-- Create a file to work with:
+- Tools:
+    - Sublime Text
+        - Elm Language Support
+    - Elm Live
 
-```bash
-touch Main.elm
-subl .
+<CMD><SHIFT><B>
+
+```elm
+main = "Hello, World!"
 ```
+
+- Elm Format adds module
+
+<CMD><SHIFT><B>
