@@ -1,0 +1,6 @@
+- Create a file to work with:
+
+```bash
+touch Main.elm
+subl .
+```
