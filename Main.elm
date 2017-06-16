@@ -3,6 +3,8 @@ module Main exposing (..)
 import Html exposing (Html, div, text, h1)
 import Html.Events exposing (onClick)
 import Keyboard
+import Http
+import Json.Decode as Decode
 
 
 main : Program Never EdocModel EdocMsg
@@ -37,6 +39,7 @@ initialModel =
 type EdocMsg
     = TitleClicked
     | KeyPressed Keyboard.KeyCode
+    | NewGif (Result Http.Error String)
 
 
 edocUpdate : EdocMsg -> EdocModel -> ( EdocModel, Cmd EdocMsg )
@@ -54,6 +57,29 @@ edocUpdate msg model =
                         model
             in
                 ( newModel, Cmd.none )
+
+        NewGif (Ok newUrl) ->
+            ( { model | gifUrl = Just newUrl }, Cmd.none )
+
+        NewGif (Err _) ->
+            ( model, Cmd.none )
+
+
+getCowGif : Cmd EdocMsg
+getCowGif =
+    let
+        url =
+            "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=happy+cow&rating=g"
+
+        request =
+            Http.get url decodeGifUrl
+    in
+        Http.send NewGif request
+
+
+decodeGifUrl : Decode.Decoder String
+decodeGifUrl =
+    Decode.at [ "data", "image_url" ] Decode.string
 
 
 
