@@ -1,11 +1,13 @@
-wait, still doesn't compile - need to fix type annotation
+great, let's make the click do something!
 
+we'll need to add html events
 ```
-The type annotation for `main` says it is a:
-
-    Html msg
-
-But the definition (shown above) is a:
-
-    Program Never String EdocMsg
+import Html.Events exposing (onClick)
 ```
+
+and update the view to send that message when the title is clicked
+```
+    h1 [ onClick TitleClicked ] [ text model ]
+```
+
+just like js
