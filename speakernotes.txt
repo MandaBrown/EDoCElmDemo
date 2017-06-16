@@ -1,44 +1,33 @@
-lots of compile errors!
-address them
+what about cmds?
 
-view:
-construct new text
+A command is a way of telling Elm, “Hey, I want you to do this thing!” So if you want to send an HTTP request, you would need to command Elm to do it. Or if you wanted to ask for geolocation, you would need to command Elm to go get it.
+
+Should we try an http request?
+
+install http
+
+```bash
+elm package install elm-lang/http
 ```
+
+add a command!
+(and a decoder, ignore that for now)
+
+```
+getCowGif : Cmd EdocMsg
+getCowGif =
     let
-        titleText =
-            model.baseText ++ String.repeat model.excitementLevel "!"
+        url =
+            "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=happy+cow&rating=g"
+
+        request =
+            Http.get url decodeGifUrl
     in
-        h1 [ onClick TitleClicked ] [ text titleText ]
-```
+        Http.send NewGif request
 
-main -- make an intialModel
-```
 
-initialModel : EdocModel
-initialModel =
-    EdocModel "Hello, Erie Day of Code" 0
+decodeGifUrl : Decode.Decoder String
+decodeGifUrl =
+    Decode.at [ "data", "image_url" ] Decode.string
 
 ```
-
-update... use intial model for click, 
-update keypressed
-
-0 - 9 are keys 48 - 57...
-```
-        KeyPressed keycode ->
-            let
-                newModel =
-                    if keycode >= 48 && keycode <= 57 then
-                        { model | excitementLevel = keycode - 48 }
-                    else
-                        model
-            in
-                ( newModel, Cmd.none )
-```
-
-wait to complete keypressed
-
------
-
-Subscriptions error! that string is really the model
-same for main
