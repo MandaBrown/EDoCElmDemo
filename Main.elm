@@ -10,9 +10,13 @@ main =
 
 
 -- MODEL
---type alias Model = { ... }
---
---
+
+
+type alias EdocModel =
+    String
+
+
+
 -- UPDATE
 --type Msg = Reset | ...
 --update : Msg -> Model -> Model
