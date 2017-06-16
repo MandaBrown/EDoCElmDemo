@@ -1,5 +1,5 @@
-let's start with model and make it a string.
+next let's fill out the view, we know what we want this to look like.
 
-we'll also rename it, because i've noticed that a thing that can be confusing to people new to elm is that this name doesn't mean anything or have to be anything in particular. 
+btw, still compiling?
 
-it is the Html.beginnerProgram that ties everything together - this is just a piece and we can name it whatever we want.
+Notice the Msg? very mysterious, but check out update
