@@ -1,9 +1,44 @@
-we want to set the number of exclamations based on the key
+lots of compile errors!
+address them
 
-let's update the model to a record
+view:
+construct new text
+```
+    let
+        titleText =
+            model.baseText ++ String.repeat model.excitementLevel "!"
+    in
+        h1 [ onClick TitleClicked ] [ text titleText ]
+```
 
+main -- make an intialModel
+```
 
-type alias EdocModel =
-    { baseText : String
-    , excitementLevel : Int
-    }
+initialModel : EdocModel
+initialModel =
+    EdocModel "Hello, Erie Day of Code" 0
+
+```
+
+update... use intial model for click, 
+update keypressed
+
+0 - 9 are keys 48 - 57...
+```
+        KeyPressed keycode ->
+            let
+                newModel =
+                    if keycode >= 48 && keycode <= 57 then
+                        { model | excitementLevel = keycode - 48 }
+                    else
+                        model
+            in
+                ( newModel, Cmd.none )
+```
+
+wait to complete keypressed
+
+-----
+
+Subscriptions error! that string is really the model
+same for main
