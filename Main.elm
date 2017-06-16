@@ -38,6 +38,9 @@ edocUpdate msg model =
         TitleClicked ->
             ( model ++ "!", Cmd.none )
 
+        KeyPressed _ ->
+            ( model, Cmd.none )
+
 
 
 -- VIEW
