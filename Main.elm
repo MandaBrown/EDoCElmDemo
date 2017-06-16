@@ -18,17 +18,21 @@ type alias EdocModel =
 
 
 -- UPDATE
---type Msg = Reset | ...
+
+
+type EdocMsg
+    = TitleClicked
+
+
+
 --update : Msg -> Model -> Model
 --update msg model =
 --  case msg of
 --    Reset -> ...
 --    ...
---
---
 -- VIEW
 
 
-edocView : EdocModel -> Html Msg
+edocView : EdocModel -> Html EdocMsg
 edocView model =
     h1 [] [ text model ]
