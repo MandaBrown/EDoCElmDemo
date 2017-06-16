@@ -1,10 +1,9 @@
-now we have a new error!
-This `case` does not have branches for all possibilities.
+we want to set the number of exclamations based on the key
 
-37|>    case msg of
-38|>        TitleClicked ->
-39|>            ( model ++ "!", Cmd.none )
+let's update the model to a record
 
-You need to account for the following values:
 
-    Main.KeyPressed _
+type alias EdocModel =
+    { baseText : String
+    , excitementLevel : Int
+    }
