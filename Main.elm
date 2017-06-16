@@ -31,7 +31,9 @@ type EdocMsg
 
 edocUpdate : EdocMsg -> EdocModel -> EdocModel
 edocUpdate msg model =
-    model
+    case msg of
+        TitleClicked ->
+            model ++ "!"
 
 
 
