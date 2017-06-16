@@ -1,9 +1,22 @@
-We want to put this into an existing page, so copy over an index.html we already have.
+Now we want to build to elm js
 
-check out these lines
+It's no fun to manually build and refresh every time - let's start up a server with elm live:
 
-```html
-<div id="app"></div>
-<script src="elm.js"></script>
-<script>Elm.Main.embed(document.getElementById("app"));</script>
+```bash
+elm live Main.elm --output=elm.js
 ```
+
+make text a h1
+
+```elm
+    h1 [] [ text "Hello, World!" ]
+```
+
+add a cow 
+
+```elm
+    h1 [] [ text "Hello, World! 🐮" ]
+```
+
+add elm.js to .gitignore
+
