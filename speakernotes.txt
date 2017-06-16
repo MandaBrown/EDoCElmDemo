@@ -1,4 +1,5 @@
-that's our hello world
+let's start with model and make it a string.
 
-remember elm architecture, model update view?
+we'll also rename it, because i've noticed that a thing that can be confusing to people new to elm is that this name doesn't mean anything or have to be anything in particular. 
 
+it is the Html.beginnerProgram that ties everything together - this is just a piece and we can name it whatever we want.
