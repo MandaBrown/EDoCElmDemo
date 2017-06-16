@@ -29,7 +29,7 @@ type alias EdocModel =
 
 type EdocMsg
     = TitleClicked
-    | KeyPressed
+    | KeyPressed Keyboard.KeyCode
 
 
 edocUpdate : EdocMsg -> EdocModel -> ( EdocModel, Cmd EdocMsg )
