@@ -1,18 +1,7 @@
-now for update (map from the slides)
+we need Html.beginnerProgram to tie everything together
 
-takes a message and a model and returns a model
-
-let's add some excitement
-
-``` elm
-update : EdocMsg -> EdocModel -> EdocModel
-update msg model =
-    let
-        newTitle =
-            model ++ "!"
-    in
-        newTitle
-
-```
-
-... great, compiles, but doesn't do anything
+    Html.beginnerProgram
+        { model = "Hello, Erie Day of Code!"
+        , view = view
+        , update = update
+        }
