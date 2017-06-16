@@ -3,7 +3,7 @@ module Main exposing (..)
 import Html exposing (Html, div, text, h1)
 
 
-main : Html msg
+main : Program Never String EdocMsg
 main =
     Html.beginnerProgram
         { model = "Hello, Erie Day of Code!"
