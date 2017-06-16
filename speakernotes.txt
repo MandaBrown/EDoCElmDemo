@@ -1,14 +1,19 @@
-what if we wanted to set a level of excitement?
+To use subscriptions we'll have to switch over to program
 
-by say, listening for keypresses?
+change it and check type panel (alt up)
+- change model to init:{ init = ( "Hello, Erie Day of Code!", Cmd.none )
+- change update signature
+- change update return
+- add a message
+- import keyboard
+- make subscriptions method String -> Sub EdocMsg
 
-keyboard package
-http://package.elm-lang.org/packages/elm-lang/keyboard/1.0.1/Keyboard
 
-> This library lets you listen to global keyboard events.
 
-subs hmmm... anyway, let's install it
+edocSubs : String -> Sub EdocMsg
+edocSubs str =
+    Keyboard.downs
 
-```bash
-elm package install elm-lang/keyboard
-```
+
+... now we get this error: 
+ (Keyboard.KeyCode -> EdocMsg) -> Sub EdocMsg
