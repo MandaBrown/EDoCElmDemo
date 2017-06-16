@@ -1,5 +1,18 @@
-next let's fill out the view, we know what we want this to look like.
+now let's fill out update
 
-btw, still compiling?
+1st, there is a type alias, Msg. Let's rename that because it often gets confused with msg
 
-Notice the Msg? very mysterious, but check out update
+> The Msg type describes these capabilities as data. Important! 
+
+What actions are we going to have?
+
+Let's do something when we click on the title, silly but works (TitleClicked)
+
+dont forget to change the view signature!!!
+
+note the "msg" at the top
+stand-in for type, Html doesn't know what types we're going to give it
+
+```elm
+type Answer a = Yes | No | Other a
+```
