@@ -24,12 +24,12 @@ type EdocMsg
     = TitleClicked
 
 
+edocUpdate : EdocMsg -> EdocModel -> EdocModel
+edocUpdate msg model =
+    model
 
---update : Msg -> Model -> Model
---update msg model =
---  case msg of
---    Reset -> ...
---    ...
+
+
 -- VIEW
 
 
