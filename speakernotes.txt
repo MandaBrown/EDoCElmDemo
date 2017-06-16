@@ -1,15 +1,9 @@
+We want to put this into an existing page, so copy over an index.html we already have.
+
+check out these lines
+
+```html
+<div id="app"></div>
+<script src="elm.js"></script>
+<script>Elm.Main.embed(document.getElementById("app"));</script>
 ```
-main : Html msg
-```
-
-<CMD><SHIFT><B>
-
-all good - let's actually build it with elm lang support
-
-<CMD><SHIFT><B>
-
-see build folder, with Main.html
-
-Compiled to html
-
-look at it, open in browser, then delete it
