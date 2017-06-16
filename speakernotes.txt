@@ -1,18 +1,18 @@
-now let's fill out update
+now for update (map from the slides)
 
-1st, there is a type alias, Msg. Let's rename that because it often gets confused with msg
+takes a message and a model and returns a model
 
-> The Msg type describes these capabilities as data. Important! 
+let's add some excitement
 
-What actions are we going to have?
+``` elm
+update : EdocMsg -> EdocModel -> EdocModel
+update msg model =
+    let
+        newTitle =
+            model ++ "!"
+    in
+        newTitle
 
-Let's do something when we click on the title, silly but works (TitleClicked)
-
-dont forget to change the view signature!!!
-
-note the "msg" at the top
-stand-in for type, Html doesn't know what types we're going to give it
-
-```elm
-type Answer a = Yes | No | Other a
 ```
+
+... great, compiles, but doesn't do anything
