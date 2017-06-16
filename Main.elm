@@ -1,6 +1,7 @@
 module Main exposing (..)
 
 import Html exposing (Html, div, text, h1)
+import Html.Events exposing (onClick)
 
 
 main : Program Never String EdocMsg
@@ -39,4 +40,4 @@ edocUpdate msg model =
 
 edocView : EdocModel -> Html EdocMsg
 edocView model =
-    h1 [] [ text model ]
+    h1 [ onClick TitleClicked ] [ text model ]
