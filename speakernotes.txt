@@ -1,1 +1,3 @@
-now we need to show the image in the view
+and actually fetch it, let's do it when the image is clicked
+
+change event from title click to image click
