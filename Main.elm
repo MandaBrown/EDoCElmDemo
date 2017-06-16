@@ -27,6 +27,8 @@ type alias EdocModel =
 --
 --
 -- VIEW
---view : Model -> Html Msg
---view model =
---  ...
+
+
+edocView : EdocModel -> Html Msg
+edocView model =
+    h1 [] [ text model ]
