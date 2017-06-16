@@ -6,6 +6,7 @@ import Html.Attributes exposing (class, src)
 import Keyboard
 import Http
 import Json.Decode as Decode
+import Time exposing (Time, second)
 
 
 main : Program Never EdocModel EdocMsg
@@ -42,11 +43,15 @@ type EdocMsg
     = ImageClicked
     | KeyPressed Keyboard.KeyCode
     | NewGif (Result Http.Error String)
+    | ChangeGif
 
 
 edocUpdate : EdocMsg -> EdocModel -> ( EdocModel, Cmd EdocMsg )
 edocUpdate msg model =
     case msg of
+        ChangeGif ->
+            ( model, getCowGif )
+
         ImageClicked ->
             ( initialModel, getCowGif )
 
@@ -115,4 +120,7 @@ edocView model =
 
 edocSubs : EdocModel -> Sub EdocMsg
 edocSubs model =
-    Keyboard.downs KeyPressed
+    Sub.batch
+        [ Keyboard.downs KeyPressed
+        , Time.every (second * 6) (\_ -> ChangeGif)
+        ]
