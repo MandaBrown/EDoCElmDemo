@@ -1,3 +1,19 @@
-and actually fetch it, let's do it when the image is clicked
+cowchan
 
-change event from title click to image click
+import time
+
+import Time exposing (Time, second)
+
+subs: 
+```
+    Sub.batch
+        [ Keyboard.downs KeyPressed
+        , Time.every (second * 6) (\_ -> ChangeGif)
+        ]
+```
+
+changegif msg
+```
+        ChangeGif ->
+            ( model, getCowGif )
+```
