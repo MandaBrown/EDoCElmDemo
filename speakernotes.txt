@@ -1,13 +1,14 @@
-ok, compiles but still doesn't do anything
+what if we wanted to set a level of excitement?
 
-we have to udpate the model
+by say, listening for keypresses?
 
-talk about case statement
+keyboard package
+http://package.elm-lang.org/packages/elm-lang/keyboard/1.0.1/Keyboard
 
-add some excitement
-```
-    case msg of
-        TitleClicked ->
-            model ++ "!"
+> This library lets you listen to global keyboard events.
 
+subs hmmm... anyway, let's install it
+
+```bash
+elm package install elm-lang/keyboard
 ```
