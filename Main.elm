@@ -20,7 +20,9 @@ main =
 
 
 type alias EdocModel =
-    String
+    { baseText : String
+    , excitementLevel : Int
+    }
 
 
 
