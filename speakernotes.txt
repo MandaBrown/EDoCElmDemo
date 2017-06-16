@@ -1,28 +1,10 @@
-The argument to function `downs` is causing a mismatch.
+now we have a new error!
+This `case` does not have branches for all possibilities.
 
-57|     Keyboard.downs KeyPressed
-                       ^^^^^^^^^^
-Function `downs` is expecting the argument to be:
+37|>    case msg of
+38|>        TitleClicked ->
+39|>            ( model ++ "!", Cmd.none )
 
-    Keyboard.KeyCode -> EdocMsg
+You need to account for the following values:
 
-But it is:
-
-    EdocMsg
-
-Hint: It looks like a function needs 1 more argument.
-
-
-
-remember we get a constructor with types?
-
-KeyPressed : EdocMsg
-
-and we can pass data along
-
-if we make our constructor:
-
-KeyPressed : Keyboard.Keycode -> EdocMsg
-
-then we have the method that keyboard downs wants!
-
+    Main.KeyPressed _
