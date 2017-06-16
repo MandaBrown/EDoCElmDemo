@@ -1,13 +1,13 @@
-great, let's make the click do something!
+ok, compiles but still doesn't do anything
 
-we'll need to add html events
-```
-import Html.Events exposing (onClick)
-```
+we have to udpate the model
 
-and update the view to send that message when the title is clicked
-```
-    h1 [ onClick TitleClicked ] [ text model ]
-```
+talk about case statement
 
-just like js
+add some excitement
+```
+    case msg of
+        TitleClicked ->
+            model ++ "!"
+
+```
