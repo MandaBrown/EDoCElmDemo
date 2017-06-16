@@ -1,22 +1,4 @@
-Now we want to build to elm js
+that's our hello world
 
-It's no fun to manually build and refresh every time - let's start up a server with elm live:
-
-```bash
-elm live Main.elm --output=elm.js
-```
-
-make text a h1
-
-```elm
-    h1 [] [ text "Hello, World!" ]
-```
-
-add a cow 
-
-```elm
-    h1 [] [ text "Hello, World! 🐮" ]
-```
-
-add elm.js to .gitignore
+remember elm architecture, model update view?
 
