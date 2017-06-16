@@ -1,10 +1,1 @@
-if we want to show a gif in the view, we'll need to add some stuff to our model 
-
-
-<!-- type alias EdocModel =
-    { baseText : String
-    , excitementLevel : Int
-    , gifUrl : Maybe String
-    }
- -->
- talk about maybe
+now we need to show the image in the view
