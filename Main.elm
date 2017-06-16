@@ -5,10 +5,10 @@ import Html.Events exposing (onClick)
 import Keyboard
 
 
-main : Program Never String EdocMsg
+main : Program Never EdocModel EdocMsg
 main =
     Html.program
-        { init = ( "Hello, Erie Day of Code!", Cmd.none )
+        { init = ( initialModel, Cmd.none )
         , view = edocView
         , update = edocUpdate
         , subscriptions = edocSubs
@@ -25,6 +25,11 @@ type alias EdocModel =
     }
 
 
+initialModel : EdocModel
+initialModel =
+    EdocModel "Hello, Erie Day of Code" 0
+
+
 
 -- UPDATE
 
@@ -38,10 +43,17 @@ edocUpdate : EdocMsg -> EdocModel -> ( EdocModel, Cmd EdocMsg )
 edocUpdate msg model =
     case msg of
         TitleClicked ->
-            ( model ++ "!", Cmd.none )
+            ( initialModel, Cmd.none )
 
-        KeyPressed _ ->
-            ( model, Cmd.none )
+        KeyPressed keycode ->
+            let
+                newModel =
+                    if keycode >= 48 && keycode <= 57 then
+                        { model | excitementLevel = keycode - 48 }
+                    else
+                        model
+            in
+                ( newModel, Cmd.none )
 
 
 
@@ -50,13 +62,18 @@ edocUpdate msg model =
 
 edocView : EdocModel -> Html EdocMsg
 edocView model =
-    h1 [ onClick TitleClicked ] [ text model ]
+    let
+        titleText =
+            model.baseText
+                ++ String.repeat model.excitementLevel "!"
+    in
+        h1 [ onClick TitleClicked ] [ text titleText ]
 
 
 
 -- SUBSCRIPTIONS
 
 
-edocSubs : String -> Sub EdocMsg
-edocSubs str =
+edocSubs : EdocModel -> Sub EdocMsg
+edocSubs model =
     Keyboard.downs KeyPressed
