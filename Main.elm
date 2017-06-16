@@ -39,7 +39,7 @@ initialModel =
 
 
 type EdocMsg
-    = TitleClicked
+    = ImageClicked
     | KeyPressed Keyboard.KeyCode
     | NewGif (Result Http.Error String)
 
@@ -47,8 +47,8 @@ type EdocMsg
 edocUpdate : EdocMsg -> EdocModel -> ( EdocModel, Cmd EdocMsg )
 edocUpdate msg model =
     case msg of
-        TitleClicked ->
-            ( initialModel, Cmd.none )
+        ImageClicked ->
+            ( initialModel, getCowGif )
 
         KeyPressed keycode ->
             let
@@ -104,8 +104,8 @@ edocView model =
                     "https://media.giphy.com/media/hFmIU5GQF18Aw/giphy.gif"
     in
         div []
-            [ h1 [ onClick TitleClicked ] [ text titleText ]
-            , img [ src gifUrl, class "animated-animal" ] []
+            [ h1 [] [ text titleText ]
+            , img [ onClick ImageClicked, src gifUrl, class "animated-animal" ] []
             ]
 
 
